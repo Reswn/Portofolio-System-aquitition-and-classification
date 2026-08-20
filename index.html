@@ -386,17 +386,20 @@ table.quant tr.chosen td:first-child{ font-weight:600; color:var(--ink); }
   <h2 class="sec-title">Where the photo actually turns into a label</h2>
   <p class="sec-sub">The Float16 model runs behind a small FastAPI inference service, called by the web app. The ESP32-CAM only handles capture; classification happens as a separate step.</p>
 
-<div class="split" style="margin-top:36px;">
-  <div class="shots">
-    <div class="shot"><img src="img/Halaman Utama Web.png"></div>
-    <div class="shot"><img src="img/Halaman Klasifikasi.png"></div>
+  <div class="split" style="margin-top:36px;">
+    <div class="shots">
+      <div class="shot"><img src="img/Halaman Utama Web.png" alt="Web app home page"></div>
+      <div class="shot"><img src="img/Halaman Klasifikasi.png" alt="Classification page"></div>
+    </div>
+    <div class="app-flow">
+      <div class="flow-step"><div class="flow-num">1</div><div><h5>Get an image in</h5><p>Upload a file, take a photo directly, or pull one from the ESP32-CAM gallery.</p></div></div>
+      <div class="flow-step"><div class="flow-num">2</div><div><h5>Run inference</h5><p>The image is sent to the FastAPI service running the Float16 TFLite model.</p></div></div>
+      <div class="flow-step"><div class="flow-num">3</div><div><h5>Read the result</h5><p>A medical / non-medical label comes back with a confidence score and the inference time.</p></div></div>
+      <a href="https://portofolio-system-aquitition-and-cl-ashen.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:20px;">Open live preview →</a>
+    </div>
   </div>
-  <div class="app-flow">
-    <div class="flow-step"><div class="flow-num">1</div><div><h5>Get an image in</h5><p>Upload a file, take a photo directly, or pull one from the ESP32-CAM gallery.</p></div></div>
-    <div class="flow-step"><div class="flow-num">2</div><div><h5>Run inference</h5><p>The image is sent to the FastAPI service running the Float16 TFLite model.</p></div></div>
-    <div class="flow-step"><div class="flow-num">3</div><div><h5>Read the result</h5><p>A medical / non-medical label comes back with a confidence score and the inference time.</p></div></div>
-  </div>
-</div>
+
+</section>
 
   <div class="note" style="margin-top:44px;">
     <p><b>To be clear:</b> the output is labeled <i>indicative</i> on purpose. It's meant to support a first look based on visual traits, not to make medical or waste-disposal decisions on its own.</p>
